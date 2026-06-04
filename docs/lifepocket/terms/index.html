@@ -5,6 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="LifePocket Terms of Service — A few promises for using LifePocket.">
 <title>Terms of Service · LifePocket</title>
+<script>
+  // Early theme init to prevent FOUC
+  (function () {
+    try {
+      const param = new URLSearchParams(window.location.search).get('theme');
+      let theme = null;
+      if (param === 'light' || param === 'dark') {
+        theme = param;
+      } else {
+        const stored = localStorage.getItem('lp-terms-theme');
+        if (stored === 'light' || stored === 'dark') {
+          theme = stored;
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        }
+      }
+      if (theme) document.documentElement.setAttribute('data-theme', theme);
+    } catch (_) {}
+  })();
+</script>
 <style>
   :root {
     --bg: #F5F6F9;
@@ -17,9 +37,26 @@
     --border: rgba(27, 31, 42, 0.10);
     --card-tint-1: rgba(99, 102, 241, 0.18);
     --card-tint-2: rgba(139, 123, 232, 0.14);
+    --accent-soft: rgba(99, 102, 241, 0.30);
     --mincho: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "Yu Mincho", "MS PMincho", serif;
     --sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Helvetica Neue", Arial, sans-serif;
     --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  /* Dark theme (mapped from AppTheme.dark; uses accent + accent3 to match terms palette) */
+  [data-theme="dark"] {
+    --bg: #14141F;             /* AppTheme.dark.background */
+    --surface: #1A1A26;        /* AppTheme.dark.backgroundElevated */
+    --foreground: #F5F5FA;     /* AppTheme.dark.foreground */
+    --foreground-muted: #B3B8C7; /* AppTheme.dark.foregroundMuted */
+    --foreground-dim: #8C94A6;   /* AppTheme.dark.foregroundDim */
+    --accent: #8C99D9;         /* AppTheme.dark.accent (indigo) */
+    --accent-2: #9994FA;       /* AppTheme.dark.accent3 (violet) */
+    --border: rgba(255, 255, 255, 0.12);
+    --card-tint-1: rgba(140, 153, 217, 0.20);
+    --card-tint-2: rgba(153, 148, 250, 0.16);
+    --accent-soft: rgba(140, 153, 217, 0.35);
+    color-scheme: dark;
   }
 
   * { box-sizing: border-box; }
@@ -41,16 +78,23 @@
     padding: 56px 24px 120px;
   }
 
-  /* Language toggle */
-  .lang-toggle {
+  /* Toolbar (language + theme toggles) */
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .toggle {
     display: flex;
     gap: 4px;
-    margin-bottom: 40px;
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.08em;
   }
-  .lang-toggle button {
+  .toggle button {
     appearance: none;
     background: transparent;
     border: 1px solid var(--border);
@@ -63,8 +107,8 @@
     font-size: inherit;
     letter-spacing: inherit;
   }
-  .lang-toggle button:hover { color: var(--foreground); }
-  .lang-toggle button.is-active {
+  .toggle button:hover { color: var(--foreground); }
+  .toggle button.is-active {
     background: var(--foreground);
     color: var(--bg);
     border-color: var(--foreground);
@@ -183,7 +227,7 @@
   section.legal a {
     color: var(--accent);
     text-decoration: none;
-    border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+    border-bottom: 1px solid var(--accent-soft);
     transition: border-color 0.15s ease;
   }
   section.legal a:hover {
@@ -223,9 +267,15 @@
 </head>
 <body>
   <main class="container">
-    <div class="lang-toggle" role="tablist" aria-label="Language">
-      <button type="button" data-lang-switch="ja" class="is-active" aria-pressed="true">日本語</button>
-      <button type="button" data-lang-switch="en" aria-pressed="false">ENGLISH</button>
+    <div class="toolbar">
+      <div class="toggle lang-toggle" role="tablist" aria-label="Language">
+        <button type="button" data-lang-switch="ja" class="is-active" aria-pressed="true">日本語</button>
+        <button type="button" data-lang-switch="en" aria-pressed="false">ENGLISH</button>
+      </div>
+      <div class="toggle theme-toggle" role="tablist" aria-label="Theme">
+        <button type="button" data-theme-switch="light" class="is-active" aria-pressed="true">LIGHT</button>
+        <button type="button" data-theme-switch="dark" aria-pressed="false">DARK</button>
+      </div>
     </div>
 
     <!-- ===================== JA ===================== -->
@@ -447,40 +497,71 @@
 
   <script>
     (function () {
-      const buttons = document.querySelectorAll('[data-lang-switch]');
-      const panels = document.querySelectorAll('[data-lang]');
+      const langButtons = document.querySelectorAll('[data-lang-switch]');
+      const langPanels = document.querySelectorAll('[data-lang]');
+      const themeButtons = document.querySelectorAll('[data-theme-switch]');
       const htmlEl = document.documentElement;
+      const params = new URLSearchParams(window.location.search);
 
       function setLang(lang) {
-        buttons.forEach(b => {
+        langButtons.forEach(b => {
           const active = b.dataset.langSwitch === lang;
           b.classList.toggle('is-active', active);
           b.setAttribute('aria-pressed', active ? 'true' : 'false');
         });
-        panels.forEach(p => {
+        langPanels.forEach(p => {
           p.classList.toggle('is-visible', p.dataset.lang === lang);
         });
         htmlEl.setAttribute('lang', lang);
         try { localStorage.setItem('lp-terms-lang', lang); } catch (_) {}
       }
 
-      buttons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.langSwitch)));
+      function setTheme(theme) {
+        themeButtons.forEach(b => {
+          const active = b.dataset.themeSwitch === theme;
+          b.classList.toggle('is-active', active);
+          b.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        htmlEl.setAttribute('data-theme', theme);
+        try { localStorage.setItem('lp-terms-theme', theme); } catch (_) {}
+      }
 
-      let initial = 'ja';
+      langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.langSwitch)));
+      themeButtons.forEach(b => b.addEventListener('click', () => setTheme(b.dataset.themeSwitch)));
+
+      // Initial language
+      let initialLang = 'ja';
       try {
-        const param = new URLSearchParams(window.location.search).get('lang');
-        if (param === 'ja' || param === 'en') {
-          initial = param;
+        const langParam = params.get('lang');
+        if (langParam === 'ja' || langParam === 'en') {
+          initialLang = langParam;
         } else {
           const stored = localStorage.getItem('lp-terms-lang');
           if (stored === 'ja' || stored === 'en') {
-            initial = stored;
+            initialLang = stored;
           } else if ((navigator.language || '').toLowerCase().startsWith('en')) {
-            initial = 'en';
+            initialLang = 'en';
           }
         }
       } catch (_) {}
-      setLang(initial);
+      setLang(initialLang);
+
+      // Initial theme (already applied by head script; just sync button state)
+      let initialTheme = 'light';
+      try {
+        const themeParam = params.get('theme');
+        if (themeParam === 'light' || themeParam === 'dark') {
+          initialTheme = themeParam;
+        } else {
+          const stored = localStorage.getItem('lp-terms-theme');
+          if (stored === 'light' || stored === 'dark') {
+            initialTheme = stored;
+          } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialTheme = 'dark';
+          }
+        }
+      } catch (_) {}
+      setTheme(initialTheme);
     })();
   </script>
 </body>
