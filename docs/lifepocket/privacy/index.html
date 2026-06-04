@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LifePocket Privacy Policy — Your data stays on your device. LifePocket never sends data to any server.">
+<title>Privacy Policy · LifePocket</title>
+<style>
+  :root {
+    --bg: #F5F6F9;
+    --surface: #FBFBFD;
+    --foreground: #1B1F2A;
+    --foreground-muted: #5C6478;
+    --foreground-dim: #8A91A4;
+    --accent: #6366F1;
+    --accent-2: #5EBCC9;
+    --border: rgba(27, 31, 42, 0.10);
+    --card-tint-1: rgba(94, 188, 201, 0.15);
+    --card-tint-2: rgba(99, 102, 241, 0.12);
+    --mincho: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "Yu Mincho", "MS PMincho", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--foreground);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.7;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 120px;
+  }
+
+  /* Language toggle */
+  .lang-toggle {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 40px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .lang-toggle button {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--foreground-dim);
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+  }
+  .lang-toggle button:hover { color: var(--foreground); }
+  .lang-toggle button.is-active {
+    background: var(--foreground);
+    color: var(--bg);
+    border-color: var(--foreground);
+  }
+
+  /* Page header */
+  .page-header h1 {
+    font-family: var(--mincho);
+    font-weight: 300;
+    font-size: 38px;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    line-height: 1.25;
+    color: var(--foreground);
+  }
+  .page-header .updated {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--foreground-dim);
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
+
+  /* Hero callout */
+  .hero {
+    margin: 28px 0 36px;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border);
+    background:
+      linear-gradient(135deg, var(--card-tint-1), var(--card-tint-2)),
+      var(--surface);
+  }
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 18px;
+  }
+  .hero-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--card-tint-2);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+  .hero-icon svg { width: 18px; height: 18px; }
+  .hero-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 2px;
+  }
+  .hero-text span {
+    display: block;
+    font-size: 12.5px;
+    color: var(--foreground-muted);
+    line-height: 1.5;
+  }
+
+  /* Sections */
+  section.legal {
+    margin-bottom: 36px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  section.legal:first-of-type { border-top: none; padding-top: 0; }
+  .section-no {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin: 0 0 6px;
+  }
+  section.legal h2 {
+    font-family: var(--mincho);
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.005em;
+    margin: 0 0 16px;
+    color: var(--foreground);
+    line-height: 1.4;
+  }
+  section.legal p {
+    font-size: 15px;
+    color: var(--foreground-muted);
+    margin: 0 0 14px;
+  }
+  section.legal ul {
+    margin: 0 0 14px;
+    padding-left: 0;
+    list-style: none;
+  }
+  section.legal li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 15px;
+    color: var(--foreground-muted);
+    margin-bottom: 6px;
+  }
+  section.legal li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 11px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-2);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 64px;
+    padding: 24px 0;
+    text-align: center;
+  }
+  footer .mark {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+  }
+  footer .brand {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--foreground-dim);
+    opacity: 0.7;
+  }
+
+  /* Language visibility */
+  [data-lang] { display: none; }
+  [data-lang].is-visible { display: block; }
+
+  @media (max-width: 480px) {
+    .container { padding: 36px 20px 96px; }
+    .page-header h1 { font-size: 30px; }
+    section.legal h2 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+  <main class="container">
+    <div class="lang-toggle" role="tablist" aria-label="Language">
+      <button type="button" data-lang-switch="ja" class="is-active" aria-pressed="true">日本語</button>
+      <button type="button" data-lang-switch="en" aria-pressed="false">ENGLISH</button>
+    </div>
+
+    <!-- ===================== JA ===================== -->
+    <div data-lang="ja" class="is-visible">
+      <header class="page-header">
+        <h1>プライバシーポリシー</h1>
+        <p class="updated">最終更新日 · 2026年6月4日</p>
+      </header>
+
+      <div class="hero" role="note">
+        <div class="hero-inner">
+          <div class="hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a5 5 0 0 1 5 5v3h1.5A2.5 2.5 0 0 1 21 11.5v9A2.5 2.5 0 0 1 18.5 23h-13A2.5 2.5 0 0 1 3 20.5v-9A2.5 2.5 0 0 1 5.5 9H7V6a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v3h6V6a3 3 0 0 0-3-3z"/></svg>
+          </div>
+          <div class="hero-text">
+            <strong>データは、あなたの端末の中だけに。</strong>
+            <span>LifePocketは、サーバーへのデータ送信を一切行いません。</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="legal">
+        <p class="section-no">SECTION 01</p>
+        <h2>収集する情報</h2>
+        <p>本アプリは、ユーザーが入力した記録（タイトル、メモ、写真、タグ、星評価、スケジュール、支出明細）をすべて端末内のSQLiteデータベース、および画像ファイルとして保存します。</p>
+        <p>LifePocketは以下の情報を収集しません：</p>
+        <ul>
+          <li>個人を特定する情報（氏名、メールアドレス、電話番号など）</li>
+          <li>位置情報、連絡先、カレンダー</li>
+          <li>使用状況・アクセス解析（クラッシュレポートを含む）</li>
+          <li>広告識別子（IDFA / AAID）</li>
+        </ul>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 02</p>
+        <h2>第三者への提供</h2>
+        <p>本アプリは、ユーザーのデータを第三者に提供しません。サーバー通信を必要としないため、運営者であってもあなたの記録を閲覧することはできません。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 03</p>
+        <h2>バックアップとiCloud</h2>
+        <p>ユーザーが明示的にバックアップ操作を実行した場合、.lip形式（SQLiteデータベース＋画像ファイルのZIP）のファイルが、Appleが提供するiCloud Driveに保存されます。このファイルの管理権限はユーザーに帰属し、AppleのプライバシーポリシーおよびiCloud利用規約が適用されます。</p>
+        <p>運営者はiCloud上のバックアップファイルにアクセスする手段を持ちません。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 04</p>
+        <h2>サブスクリプション決済</h2>
+        <p>Premiumプランの決済処理は、App Store（Apple Inc.）が行います。クレジットカード情報や購読履歴は本アプリでは取り扱わず、Appleのプライバシーポリシーに従って処理されます。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 05</p>
+        <h2>データの保持・削除</h2>
+        <p>本アプリで作成されたすべてのデータは、端末内に保存されます。アプリを削除すると、関連する全データ（記録、写真、設定）は端末から完全に削除されます。また、アプリ内から記録を個別に削除することもいつでも可能です。iCloudに保存されたバックアップファイルはユーザー自身が管理し、iCloud Driveから削除できます。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 06</p>
+        <h2>お問い合わせ</h2>
+        <p>本ポリシーに関するご質問は、<a href="mailto:y.hryk0110@gmail.com">y.hryk0110@gmail.com</a> までお問い合わせください。</p>
+      </section>
+    </div>
+
+    <!-- ===================== EN ===================== -->
+    <div data-lang="en">
+      <header class="page-header">
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated · June 4, 2026</p>
+      </header>
+
+      <div class="hero" role="note">
+        <div class="hero-inner">
+          <div class="hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a5 5 0 0 1 5 5v3h1.5A2.5 2.5 0 0 1 21 11.5v9A2.5 2.5 0 0 1 18.5 23h-13A2.5 2.5 0 0 1 3 20.5v-9A2.5 2.5 0 0 1 5.5 9H7V6a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v3h6V6a3 3 0 0 0-3-3z"/></svg>
+          </div>
+          <div class="hero-text">
+            <strong>Your data stays on your device.</strong>
+            <span>LifePocket never sends data to any server.</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="legal">
+        <p class="section-no">SECTION 01</p>
+        <h2>Information We Collect</h2>
+        <p>This app stores all records entered by the user (titles, memos, photos, tags, star ratings, schedules, and expense details) locally on your device in a SQLite database and as image files.</p>
+        <p>LifePocket does not collect the following:</p>
+        <ul>
+          <li>Personally identifiable information (name, email address, phone number, etc.)</li>
+          <li>Location data, contacts, or calendar</li>
+          <li>Usage analytics or access logs (including crash reports)</li>
+          <li>Advertising identifiers (IDFA / AAID)</li>
+        </ul>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 02</p>
+        <h2>Sharing with Third Parties</h2>
+        <p>This app does not share your data with any third parties. Because no server communication is required, even the developer cannot access your records.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 03</p>
+        <h2>Backup &amp; iCloud</h2>
+        <p>When you explicitly perform a backup, a .lip file (a ZIP of the SQLite database and image files) is saved to iCloud Drive, provided by Apple. You retain full control of this file, and Apple's Privacy Policy and iCloud Terms of Service apply.</p>
+        <p>The developer has no means to access backup files stored in iCloud.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 04</p>
+        <h2>Subscription Billing</h2>
+        <p>Premium plan payments are processed by the App Store (Apple Inc.). This app does not handle credit card information or subscription history; these are governed by Apple's Privacy Policy.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 05</p>
+        <h2>Data Retention &amp; Deletion</h2>
+        <p>All data created in this app is stored locally on your device. Uninstalling the app permanently deletes all associated data (records, photos, settings) from the device. You can also delete individual records from within the app at any time. Backup files saved to iCloud are managed by the user and can be deleted from iCloud Drive.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 06</p>
+        <h2>Contact</h2>
+        <p>For questions about this policy, please contact us at <a href="mailto:y.hryk0110@gmail.com">y.hryk0110@gmail.com</a>.</p>
+      </section>
+    </div>
+
+    <footer>
+      <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="lp-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7FB8C4"/>
+            <stop offset="55%" stop-color="#7C7DE8"/>
+            <stop offset="100%" stop-color="#A186E8"/>
+          </linearGradient>
+          <mask id="lp-bubble">
+            <rect width="64" height="64" fill="black"/>
+            <path d="M 17.21,28.52 A 15.66,15.66 0 1 1 26.50,42.83 L 17.91,49.40 Z" fill="white" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="32.9" cy="28.5" r="9.4" fill="black"/>
+          </mask>
+        </defs>
+        <rect width="64" height="64" rx="14" ry="14" fill="url(#lp-bg)"/>
+        <rect width="64" height="64" fill="white" mask="url(#lp-bubble)"/>
+      </svg>
+      <div class="brand">LIFEPOCKET</div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll('[data-lang-switch]');
+      const panels = document.querySelectorAll('[data-lang]');
+      const htmlEl = document.documentElement;
+
+      function setLang(lang) {
+        buttons.forEach(b => {
+          const active = b.dataset.langSwitch === lang;
+          b.classList.toggle('is-active', active);
+          b.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        panels.forEach(p => {
+          p.classList.toggle('is-visible', p.dataset.lang === lang);
+        });
+        htmlEl.setAttribute('lang', lang);
+        try { localStorage.setItem('lp-privacy-lang', lang); } catch (_) {}
+      }
+
+      buttons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.langSwitch)));
+
+      let initial = 'ja';
+      try {
+        const param = new URLSearchParams(window.location.search).get('lang');
+        if (param === 'ja' || param === 'en') {
+          initial = param;
+        } else {
+          const stored = localStorage.getItem('lp-privacy-lang');
+          if (stored === 'ja' || stored === 'en') {
+            initial = stored;
+          } else if ((navigator.language || '').toLowerCase().startsWith('en')) {
+            initial = 'en';
+          }
+        }
+      } catch (_) {}
+      setLang(initial);
+    })();
+  </script>
+</body>
+</html>

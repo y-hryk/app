@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LifePocket Terms of Service — A few promises for using LifePocket.">
+<title>Terms of Service · LifePocket</title>
+<style>
+  :root {
+    --bg: #F5F6F9;
+    --surface: #FBFBFD;
+    --foreground: #1B1F2A;
+    --foreground-muted: #5C6478;
+    --foreground-dim: #8A91A4;
+    --accent: #6366F1;
+    --accent-2: #8B7BE8;
+    --border: rgba(27, 31, 42, 0.10);
+    --card-tint-1: rgba(99, 102, 241, 0.18);
+    --card-tint-2: rgba(139, 123, 232, 0.14);
+    --mincho: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "Yu Mincho", "MS PMincho", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--foreground);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.7;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 120px;
+  }
+
+  /* Language toggle */
+  .lang-toggle {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 40px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .lang-toggle button {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--foreground-dim);
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+  }
+  .lang-toggle button:hover { color: var(--foreground); }
+  .lang-toggle button.is-active {
+    background: var(--foreground);
+    color: var(--bg);
+    border-color: var(--foreground);
+  }
+
+  /* Page header */
+  .page-header h1 {
+    font-family: var(--mincho);
+    font-weight: 300;
+    font-size: 38px;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    line-height: 1.25;
+    color: var(--foreground);
+  }
+  .page-header .updated {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--foreground-dim);
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
+
+  /* Hero callout */
+  .hero {
+    margin: 28px 0 36px;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border);
+    background:
+      linear-gradient(135deg, var(--card-tint-1), var(--card-tint-2)),
+      var(--surface);
+  }
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 18px;
+  }
+  .hero-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--card-tint-1);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+  .hero-icon svg { width: 18px; height: 18px; }
+  .hero-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 2px;
+  }
+  .hero-text span {
+    display: block;
+    font-size: 12.5px;
+    color: var(--foreground-muted);
+    line-height: 1.5;
+  }
+
+  /* Sections */
+  section.legal {
+    margin-bottom: 36px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  section.legal:first-of-type { border-top: none; padding-top: 0; }
+  .section-no {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin: 0 0 6px;
+  }
+  section.legal h2 {
+    font-family: var(--mincho);
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.005em;
+    margin: 0 0 16px;
+    color: var(--foreground);
+    line-height: 1.4;
+  }
+  section.legal p {
+    font-size: 15px;
+    color: var(--foreground-muted);
+    margin: 0 0 14px;
+  }
+  section.legal ul {
+    margin: 0 0 14px;
+    padding-left: 0;
+    list-style: none;
+  }
+  section.legal li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 15px;
+    color: var(--foreground-muted);
+    margin-bottom: 6px;
+  }
+  section.legal li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 11px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-2);
+  }
+  section.legal a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+    transition: border-color 0.15s ease;
+  }
+  section.legal a:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 64px;
+    padding: 24px 0;
+    text-align: center;
+  }
+  footer .mark {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+  }
+  footer .brand {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--foreground-dim);
+    opacity: 0.7;
+  }
+
+  /* Language visibility */
+  [data-lang] { display: none; }
+  [data-lang].is-visible { display: block; }
+
+  @media (max-width: 480px) {
+    .container { padding: 36px 20px 96px; }
+    .page-header h1 { font-size: 30px; }
+    section.legal h2 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+  <main class="container">
+    <div class="lang-toggle" role="tablist" aria-label="Language">
+      <button type="button" data-lang-switch="ja" class="is-active" aria-pressed="true">日本語</button>
+      <button type="button" data-lang-switch="en" aria-pressed="false">ENGLISH</button>
+    </div>
+
+    <!-- ===================== JA ===================== -->
+    <div data-lang="ja" class="is-visible">
+      <header class="page-header">
+        <h1>利用規約</h1>
+        <p class="updated">最終更新日 · 2026年6月4日</p>
+      </header>
+
+      <div class="hero" role="note">
+        <div class="hero-inner">
+          <div class="hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 2H20a1 1 0 0 1 1 1v17a1 1 0 0 1-1 1H6.5A2.5 2.5 0 0 1 4 18.5v-14A2.5 2.5 0 0 1 6.5 2zm0 16a.5.5 0 0 0 0 1H19v-1H6.5zM19 4H6.5A.5.5 0 0 0 6 4.5v11.55A2.49 2.49 0 0 1 6.5 16H19V4z"/></svg>
+          </div>
+          <div class="hero-text">
+            <strong>LifePocketを使う、いくつかの約束。</strong>
+            <span>短くまとめてあります。ご一読ください。</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="legal">
+        <p class="section-no">SECTION 01</p>
+        <h2>本サービスについて</h2>
+        <p>「LifePocket」（以下、本アプリ）は、ユーザーが日々の体験を端末内に記録するためのライフログアプリです。本規約は、本アプリの利用に関する条件を定めます。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 02</p>
+        <h2>利用資格</h2>
+        <p>本アプリは、AppleのApp Store規約に基づき、13歳以上の個人がご利用いただけます。未成年者は保護者の同意を得たうえでご利用ください。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 03</p>
+        <h2>無料プラン・Premiumプラン</h2>
+        <p>無料プランでは以下の制限があります：</p>
+        <ul>
+          <li>ノートの作成は最大5件まで</li>
+          <li>1ページあたりの写真は最大5枚まで</li>
+        </ul>
+        <p>Premiumプラン（月額¥100 / 年額¥1,000）に加入すると、上記制限が解除され、追加機能（バックアップ、タグフィルター、ノートテーマ変更）が利用可能になります。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 04</p>
+        <h2>サブスクリプションの自動更新</h2>
+        <p>Premiumプランは、期間終了の24時間前までに解約しない場合、同じ条件で自動更新されます。解約はApp Storeのアカウント設定からいつでも行えます。</p>
+        <p>無料トライアル期間中に解約した場合、料金は発生しません。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 05</p>
+        <h2>ユーザーの責任</h2>
+        <p>本アプリで作成・保存されるすべての記録は、ユーザー自身の責任において管理されます。データの損失・破損に備え、定期的なバックアップ操作を推奨します。</p>
+        <p>以下の行為は禁止されています：</p>
+        <ul>
+          <li>本アプリの逆コンパイル、リバースエンジニアリング</li>
+          <li>不正な手段によるPremium機能の利用</li>
+          <li>その他、法令または公序良俗に反する行為</li>
+        </ul>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 06</p>
+        <h2>知的財産権</h2>
+        <p>本アプリの著作権、商標権、その他一切の知的財産権は、運営者またはライセンス供与者に帰属します。ユーザーが作成した記録の著作権は、ユーザー本人に帰属します。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 07</p>
+        <h2>免責事項</h2>
+        <p>本アプリは「現状有姿」で提供されます。運営者は、データの完全性、可用性、特定目的への適合性について一切の保証を行いません。本アプリの利用により生じた損害について、運営者は責任を負わないものとします。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 08</p>
+        <h2>規約の変更</h2>
+        <p>本規約は、必要に応じて変更されることがあります。重要な変更がある場合は、アプリ内通知またはApp Storeの説明欄を通じてお知らせします。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 09</p>
+        <h2>返金について</h2>
+        <p>本アプリのアプリ内課金はApple経由で行われ、返金に関してはAppleの規定に従います。返金をご希望の場合は、Appleの「問題を報告する」ページ（<a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>）よりお手続きください。運営者から直接返金対応を行うことはできません。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 10</p>
+        <h2>準拠法</h2>
+        <p>本規約の解釈および適用は、日本法に準拠するものとします。</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 11</p>
+        <h2>お問い合わせ</h2>
+        <p>本アプリに関するお問い合わせは、<a href="mailto:y.hryk0110@gmail.com">y.hryk0110@gmail.com</a> までご連絡ください。</p>
+      </section>
+    </div>
+
+    <!-- ===================== EN ===================== -->
+    <div data-lang="en">
+      <header class="page-header">
+        <h1>Terms of Service</h1>
+        <p class="updated">Last updated · June 4, 2026</p>
+      </header>
+
+      <div class="hero" role="note">
+        <div class="hero-inner">
+          <div class="hero-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 2H20a1 1 0 0 1 1 1v17a1 1 0 0 1-1 1H6.5A2.5 2.5 0 0 1 4 18.5v-14A2.5 2.5 0 0 1 6.5 2zm0 16a.5.5 0 0 0 0 1H19v-1H6.5zM19 4H6.5A.5.5 0 0 0 6 4.5v11.55A2.49 2.49 0 0 1 6.5 16H19V4z"/></svg>
+          </div>
+          <div class="hero-text">
+            <strong>A few promises for using LifePocket.</strong>
+            <span>Summarized briefly. Please give it a read.</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="legal">
+        <p class="section-no">SECTION 01</p>
+        <h2>About This Service</h2>
+        <p>"LifePocket" (hereinafter "the App") is a life-logging app for recording daily experiences on your device. These Terms govern your use of the App.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 02</p>
+        <h2>Eligibility</h2>
+        <p>This app is available to individuals aged 13 and older in accordance with Apple's App Store terms. Minors must obtain parental consent before use.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 03</p>
+        <h2>Free Plan &amp; Premium Plan</h2>
+        <p>The Free plan has the following limitations:</p>
+        <ul>
+          <li>Up to 5 notes</li>
+          <li>Up to 5 photos per note</li>
+        </ul>
+        <p>Subscribing to the Premium plan (¥100/month or ¥1,000/year) removes these limitations and unlocks additional features: backup, tag filtering, and note theme customization.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 04</p>
+        <h2>Automatic Renewal</h2>
+        <p>The Premium plan automatically renews on the same terms unless cancelled at least 24 hours before the end of the current period. You can cancel at any time in your App Store account settings.</p>
+        <p>No charge will be incurred if you cancel during a free trial period.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 05</p>
+        <h2>User Responsibilities</h2>
+        <p>All records created and saved in the app are managed at your own responsibility. We recommend performing regular backups to prevent data loss or corruption.</p>
+        <p>The following actions are prohibited:</p>
+        <ul>
+          <li>Decompiling or reverse-engineering the app</li>
+          <li>Accessing Premium features through unauthorized means</li>
+          <li>Any other actions that violate laws or public order</li>
+        </ul>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 06</p>
+        <h2>Intellectual Property</h2>
+        <p>All copyrights, trademarks, and other intellectual property rights in this app belong to the developer or its licensors. Copyright in records created by users belongs to the respective user.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 07</p>
+        <h2>Disclaimer</h2>
+        <p>This app is provided "as is." The developer makes no warranties regarding data integrity, availability, or fitness for a particular purpose. The developer shall not be liable for any damages arising from use of the app.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 08</p>
+        <h2>Changes to These Terms</h2>
+        <p>These Terms may be revised as necessary. For significant changes, we will notify you via in-app notice or the App Store description.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 09</p>
+        <h2>Refunds</h2>
+        <p>All in-app purchases are processed through Apple, and refunds are handled in accordance with Apple's policies. To request a refund, please use Apple's "Report a Problem" page (<a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>). The developer cannot issue refunds directly.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 10</p>
+        <h2>Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of Japan.</p>
+      </section>
+
+      <section class="legal">
+        <p class="section-no">SECTION 11</p>
+        <h2>Contact</h2>
+        <p>For inquiries regarding this app, please contact us at <a href="mailto:y.hryk0110@gmail.com">y.hryk0110@gmail.com</a>.</p>
+      </section>
+    </div>
+
+    <footer>
+      <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="lp-bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7FB8C4"/>
+            <stop offset="55%" stop-color="#7C7DE8"/>
+            <stop offset="100%" stop-color="#A186E8"/>
+          </linearGradient>
+          <mask id="lp-bubble">
+            <rect width="64" height="64" fill="black"/>
+            <path d="M 17.21,28.52 A 15.66,15.66 0 1 1 26.50,42.83 L 17.91,49.40 Z" fill="white" stroke="white" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="32.9" cy="28.5" r="9.4" fill="black"/>
+          </mask>
+        </defs>
+        <rect width="64" height="64" rx="14" ry="14" fill="url(#lp-bg)"/>
+        <rect width="64" height="64" fill="white" mask="url(#lp-bubble)"/>
+      </svg>
+      <div class="brand">LIFEPOCKET</div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll('[data-lang-switch]');
+      const panels = document.querySelectorAll('[data-lang]');
+      const htmlEl = document.documentElement;
+
+      function setLang(lang) {
+        buttons.forEach(b => {
+          const active = b.dataset.langSwitch === lang;
+          b.classList.toggle('is-active', active);
+          b.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        panels.forEach(p => {
+          p.classList.toggle('is-visible', p.dataset.lang === lang);
+        });
+        htmlEl.setAttribute('lang', lang);
+        try { localStorage.setItem('lp-terms-lang', lang); } catch (_) {}
+      }
+
+      buttons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.langSwitch)));
+
+      let initial = 'ja';
+      try {
+        const param = new URLSearchParams(window.location.search).get('lang');
+        if (param === 'ja' || param === 'en') {
+          initial = param;
+        } else {
+          const stored = localStorage.getItem('lp-terms-lang');
+          if (stored === 'ja' || stored === 'en') {
+            initial = stored;
+          } else if ((navigator.language || '').toLowerCase().startsWith('en')) {
+            initial = 'en';
+          }
+        }
+      } catch (_) {}
+      setLang(initial);
+    })();
+  </script>
+</body>
+</html>
